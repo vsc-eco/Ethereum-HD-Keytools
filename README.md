@@ -1,5 +1,3 @@
-# VCLink Key Tools
+# ethereum-hd-keytool
 
-Tools that generate, split, package, and verify crypto related items (keys, addresses, hashes, signatures, etc.) according to an instruction.
-
-## Instruction
+Tools for management of HD wallet and the safe storage of secrets 
