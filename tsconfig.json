@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "lib": [
+            "es2017"
+        ],
+        "outDir": "build",
+        "inlineSourceMap": true
+    },
+    "files": [
+        "src/kt.ts"
+    ]
+}

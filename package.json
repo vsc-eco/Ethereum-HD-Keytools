@@ -1,0 +1,33 @@
+{
+  "name": "vclink-keytools",
+  "version": "1.0.0",
+  "description": "Tools to generate keys and addresses for VCLink project. RUN ONLY OFFLINE!",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "kt": "tsc;node build/kt.js",
+    "debug": "tsc;node --inspect-brk build/kt.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/vclink-keytools"
+  },
+  "author": "Bing Ren",
+  "license": "All Right Reserved",
+  "dependencies": {
+    "@types/node": "^10.12.6",
+    "aws-sdk": "^2.318.0",
+    "bip39": "^2.5.0",
+    "ethereumjs-util": "^5.2.0",
+    "ethereumjs-wallet": "^0.6.2",
+    "js-combinatorics": "^0.5.4",
+    "minimist": "^1.2.0",
+    "mkdir-recursive": "^0.4.0",
+    "secrets.js": "^0.1.8",
+    "sha3": "^1.2.2",
+    "single-line-log": "^1.1.2"
+  },
+  "devDependencies": {
+    "source-map-support": "^0.5.9"
+  }
+}

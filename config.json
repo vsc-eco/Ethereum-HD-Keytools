@@ -1,0 +1,106 @@
+{
+    "prodDir":"./product/prod",
+    "openDir":"./product/open",
+    "retrieveDir":"./clearSecret",
+    "retrieveLog":"./log.txt",
+    "seeds": {
+        "seed-0": {
+            "mnemonicStorage": {
+                "scheme": "bip39-mnemonic-2of3",
+                "destinations": ["HK", "TW", "US"]
+            },
+            "seedStorage": {
+                "scheme": "shamir-secret-sharing",
+                "totalShares": 3,
+                "threshold": 2,
+                "destinations": ["HK", "TW", "US"]
+            },
+            "purposes": {
+                "p1": {
+                    "path": "m/44'/60'/0'/0'",
+                    "range": 100,
+                    "hardened": true,
+                    "privateKeyExtendedStorage": {
+                        "scheme": "shamir-secret-sharing",
+                        "totalShares": 3,
+                        "threshold": 2,
+                        "destinations": ["HK", "TW", "US"]
+                    },
+                    "addrPrivateKeyStorage": {
+                        "scheme": "shamir-secret-sharing",
+                        "totalShares": 3,
+                        "threshold": 2,
+                        "destinations": ["HK", "TW", "US"]
+                    },
+                    "addrStorage": {
+                        "scheme": "clear",
+                        "basePath": "ADDR"
+                    }
+                },
+                "p2": {
+                    "path": "m/44'/60'/0'/1'",
+                    "range": 100000,
+                    "hardened": true,
+                    "privateKeyExtendedStorage": {
+                        "scheme": "shamir-secret-sharing",
+                        "totalShares": 3,
+                        "threshold": 2,
+                        "destinations": ["HK", "TW", "US"]
+                    },
+                    "addrPrivateKeyStorage": {
+                        "scheme": "shamir-secret-sharing",
+                        "totalShares": 3,
+                        "threshold": 2,
+                        "destinations": ["HK", "TW", "US"]
+                    },
+                    "addrStorage": {
+                        "scheme": "clear",
+                        "basePath": "ADDR"
+                    }
+                },
+                "p3": {
+                    "path": "m/44'/60'/0'/2'",
+                    "range": 3000,
+                    "hardened": true,
+                    "privateKeyExtendedStorage": {
+                        "scheme": "shamir-secret-sharing",
+                        "totalShares": 3,
+                        "threshold": 2,
+                        "destinations": ["HK", "TW", "US"]
+                    },
+                    "addrPrivateKeyStorage": {
+                        "scheme": "shamir-secret-sharing",
+                        "totalShares": 3,
+                        "threshold": 2,
+                        "destinations": ["HK", "TW", "US"]
+                    },
+                    "addrStorage": {
+                        "scheme": "clear",
+                        "basePath": "ADDR"
+                    }
+                },
+                "p4": {
+                    "path": "m/44'/60'/0'/3'",
+                    "range": 5000,
+                    "hardened": true,
+                    "privateKeyExtendedStorage": {
+                        "scheme": "shamir-secret-sharing",
+                        "totalShares": 3,
+                        "threshold": 2,
+                        "destinations": ["HK", "TW", "US"]
+                    },
+                    "addrPrivateKeyStorage": {
+                        "scheme": "shamir-secret-sharing",
+                        "totalShares": 3,
+                        "threshold": 2,
+                        "destinations": ["HK", "TW", "US"]
+                    },
+                    "addrStorage": {
+                        "scheme": "clear",
+                        "basePath": "ADDR"
+                    }
+                }
+            }
+        }
+    }
+}
