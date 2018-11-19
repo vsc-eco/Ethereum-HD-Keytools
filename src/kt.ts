@@ -13,9 +13,10 @@ console.log("**************************  VCLink Key Tools **********************
 const fs = require('fs')
 import { KeytoolConfig } from './lib/definitions'
 import { TaskRunner } from './lib/task-runner'
-const CFG_FILEPATH = "./config.json"
-
 var argv = require('minimist')(process.argv.slice(2));
+
+const CFG_FILEPATH = (argv._[1])?(argv._[1]):"./config.json"
+
 // read in configuration
 const config = JSON.parse(fs.readFileSync(CFG_FILEPATH)) as KeytoolConfig
 switch (argv._[0]) {

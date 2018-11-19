@@ -8,11 +8,11 @@ This tool manages generation, verification, storage and retrieval of hierarchy d
 
 The keys are managed in three tires. "Seed" is the root of the HD hierarchy and can derive all the other keys for the "purposes" and "addresses" under it. In another word, if a "seed" is exposed, all the keys under it are exposed. "Purposes" are nodes under a derivitive path of a "seed" and "addresses" are a number of Ethereum addresses derived under a "purpose". 
 
-The hierarcy of keys to be managed by the tool along with configurations to handle the storage is described in the configuration file "config.json". 
+The hierarcy of keys to be managed by the tool along with configurations to handle the storage is described in the configuration file "config.json" under the current directory. Optionally, an alternative configuration file can be provided as the last parameter in all operations.
 
 ## Product
 
-Product of a "seed" is the BIP39 mnemonic words and the BIP32 single seed. Product of a "purpose" is the private extended key derived from the seed and the derivitive path of the "purpose". Product of an "address" is the private key and the public address of the "address".
+Product of a "seed" is the BIP39 mnemonic words and the BIP32 single seed. Product of a "purpose" is the private extended key derived from the seed and the derivitive path of the "purpose". Product of an "address" is the private key and the public address of the "address". Stored together with the public address is a message and the signature of the message signed with the private key of the address. The signature can be verified at https://etherscan.io/verifySig. The signature is a proof that a private key exists for the generated address, and is a verification during the generation/retrieval.
 
 Each "seed" and "purpose" is specified an ID in the configuration file. Product of "seed" and "purpose" is stored under folders named by the ID in accordance to their hierarchy ("purpose" under "seed"). 
 
