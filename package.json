@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "kt": "tsc;node build/kt.js",
-    "debug": "tsc;node --inspect-brk build/kt.js"
+    "debug": "tsc;node --inspect-brk build/kt.js",
+    "build-image": "docker build -t vsceco/hdkeytool ."
   },
   "repository": {
     "type": "git",

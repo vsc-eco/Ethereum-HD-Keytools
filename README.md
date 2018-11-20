@@ -63,7 +63,17 @@ As the name suggests, this storage scheme just store the product as is. A base p
 
 ## Usage
 
-Typescript, node and npm are required to be installed before using this tool. After checking out the code, run `npm install` and `npm run build` under 'vsc folder'.
+### Install and run
+
+Typescript and node are required to be installed before using this tool. After checking out the code, run `npm install` and `npm run build` under 'vsc folder'.
+
+This key tool has three operations, "generate", "retrieve" and "complete". For example, to run "generate", execute `npm run kt generate` under the work dir where 'config.json' is located. Otherwise the path to another config.json can be provided as the last command parameter.
+
+### Run with docker
+
+Create a work dir, put the config.json in it, then map the work dir to /workdir in container, and run with current user's id. For example,
+
+```docker run -it -v `pwd`/product:/workdir -u `id -u` vsceco/hdkeytool retrieve```
 
 ### Generate
 

@@ -11,6 +11,7 @@ const bip39 = require('bip39')
 const hdkey = require('ethereumjs-wallet/hdkey')
 const ethWallet = require('ethereumjs-wallet')
 const util = require('ethereumjs-util')
+const pathmodule = require('path')
 
 function isDerivitivePath(path: string): boolean {
     return path.match(/^m(\/\d+'?)+$/) !== null
@@ -86,6 +87,10 @@ class TaskRunner {
     ): string | Buffer | undefined {
         // try retrieve if not in generate mode
         const retrieved = this.generate ? undefined : this.store.retrieve(path, scheme, this.logStream)
+        if ((retrieved === undefined) && derivedContent && (!this.generate)) {
+            safeWriteFile(derivedContent, pathmodule.join(this.config.retrieveDir, path))
+            this.log(`Content\t${path}\tDerived\n`)  // log derived not saved
+        }
         // verify 
         if (!this.generate) {
             const verifyRes = verifyRetrieved(derivedContent, retrieved)
