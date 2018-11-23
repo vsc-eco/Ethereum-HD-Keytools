@@ -60,6 +60,7 @@ class TaskRunner {
 
     store: GeneralStorageManager
     logStream: fs.WriteStream
+    counter: number
 
     log(message) {
         if (this.logStream) {
@@ -108,7 +109,12 @@ class TaskRunner {
             this.log(`Content\t${path}\tSAVED\n`)
             this.store.store(derivedContent, path, scheme)
         }
-        slLog(`Generate/retrieved ${path}                                               \n`)
+
+        // count & update progress
+        this.counter++
+        if (this.counter % 1000 === 0) {
+            slLog(`Count: ${this.counter}`)
+        }
         // return
         if (derivedContent !== undefined) {
             return derivedContent
@@ -118,6 +124,7 @@ class TaskRunner {
     }
 
     run(): void {
+        this.counter = 0
         // open log stream
         this.logStream = this.config.retrieveLog ? (() => {
             safeWriteFile("", this.config.retrieveLog); return fs.createWriteStream(this.config.retrieveLog)
@@ -125,6 +132,7 @@ class TaskRunner {
 
         // iterate seeds
         for (let seedId in this.config.seeds) {
+            console.log(`\nWorking on ${seedId}`)
             const seedConfig = this.config.seeds[seedId]
             // generate/retrieve mnemonic word
             const mnemonic: string = this.retrieveAndComplete(
@@ -153,6 +161,7 @@ class TaskRunner {
 
             // iterate through purposes
             for (let purposeId in seedConfig.purposes) {
+                console.log(`\nWorking on ${seedId}/${purposeId}`)
                 const purposeConfig = seedConfig.purposes[purposeId]
                 // check the path
                 if (!isDerivitivePath(purposeConfig.path) || 
@@ -239,7 +248,7 @@ class TaskRunner {
         if (this.logStream) {
             this.logStream.end()
         }
-        console.log("DONE")
+        console.log(`\nDONE, count=${this.counter}`)
     }
 }
 
